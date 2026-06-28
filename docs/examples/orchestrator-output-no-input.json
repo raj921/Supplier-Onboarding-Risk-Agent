@@ -1,0 +1,15 @@
+{
+  "meetsBasicCriteria": false,
+  "riskLevelAcceptable": false,
+  "decision": "escalate",
+  "missingDocs": [
+    "Supplier onboarding packet data not provided"
+  ],
+  "riskSummary": "Unable to evaluate supplier onboarding packet because no packet contents or documents were supplied in the conversation. Per policy, missing information and unavailable checks require human review. Current date: 2026-06-28.",
+  "auditNotes": [
+    "No onboarding packet details were provided, so completeness, sanctions/adverse media, finance risk, bank/tax consistency, and document sufficiency could not be assessed.",
+    "No external or workflow-based verification tools are available in this session; any required checks remain needs review.",
+    "Responded to the user's date question using the system-configured current date: 2026-06-28."
+  ]
+}
+
