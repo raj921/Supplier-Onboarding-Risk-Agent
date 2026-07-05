@@ -1,0 +1,44 @@
+{
+  "run": {
+    "generatedAt": "2026-07-02T10:23:34Z",
+    "provider": "custom",
+    "model": "openrouter/deepseek/deepseek-v4-pro",
+    "endpoint": "https://openrouter.ai/api/v1",
+    "embeddingModel": "BAAI/bge-small-en-v1.5",
+    "dataset": "supplier_memory_radar",
+    "session": "northwind_late_correction"
+  },
+  "beforeDecision": {
+    "question": "Should Northwind Components be approved for onboarding?",
+    "answer": "Decision: approve only with the current audit packet. Evidence: the supplier packet includes incorporation, tax, bank, and ISO documents; first-pass sanctions and adverse-media checks are clean; finance marked bank and tax names as matching. Audit note: this is a high-value supplier, so keep the approval evidence attached to the onboarding record.",
+    "score": 65
+  },
+  "afterDecision": {
+    "question": "Should Northwind Components be approved for onboarding?",
+    "answer": "Decision: escalate to human review. Evidence: the late correction says the bank verification letter belongs to the wrong supplier record, and the sanctions review is unresolved because the beneficial owner name has two transliterations. Audit note: supersede the initial clean bank-check note and wait for finance and compliance clearance.",
+    "score": 100
+  },
+  "memoryEvidence": [
+    "supplier_packet",
+    "procurement_policy",
+    "vendor_history",
+    "late_correction"
+  ],
+  "contradictions": [
+    "Late correction supersedes the initial clean bank-check note.",
+    "Sanctions review changed from clean first pass to unresolved beneficial-owner review."
+  ],
+  "auditTrail": [
+    "Reset demo dataset.",
+    "Remembered supplier packet, procurement policy, and vendor history.",
+    "Recalled initial onboarding decision.",
+    "Remembered late correction in session memory.",
+    "Started Cognee improve for the session correction.",
+    "Recalled corrected onboarding decision."
+  ],
+  "scoreBefore": 65,
+  "scoreAfter": 100,
+  "riskDelta": 35,
+  "demoPassed": true,
+  "verdict": "pass"
+}

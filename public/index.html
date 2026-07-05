@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Supplier Memory Risk Radar</title>
+    <meta name="description" content="A hosted Typer terminal for the Cognee supplier memory CLI." />
+    <link rel="stylesheet" href="/static/styles.css?v=20260704-real-workflow-1" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Supplier Memory Risk Radar">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Supplier Memory Risk Radar</span>
+        </a>
+        <div class="topbar-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="connection-status">ready</span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <h1>Supplier CLI hosted in the browser.</h1>
+          <p>Type the same Typer commands used locally. Railway runs the Python CLI and returns stdout here.</p>
+        </div>
+        <div class="hero-proof" aria-label="Current proof score">
+          <span>verified proof</span>
+          <strong id="hero-verdict">pass</strong>
+        </div>
+      </section>
+
+      <section class="product-grid" aria-label="Hosted CLI workspace">
+        <section class="panel terminal-panel" aria-label="Terminal">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Hosted terminal</p>
+              <h2>supplier-memory-radar</h2>
+            </div>
+            <span class="status-pill" id="status-pill">idle</span>
+          </div>
+
+          <div class="terminal-window" aria-live="polite">
+            <div class="terminal-chrome" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="terminal-log" id="terminal-log">
+              <pre class="terminal-entry output">Hosted terminal loading. If this does not update, refresh the page once.</pre>
+            </div>
+            <form class="terminal-form" id="terminal-form">
+              <span class="prompt">$</span>
+              <label class="sr-only" for="terminal-command">Terminal command</label>
+              <input
+                id="terminal-command"
+                name="command"
+                autocomplete="off"
+                spellcheck="false"
+                value="supplier-memory-radar doctor"
+              />
+              <button class="run-button" type="submit">Run</button>
+            </form>
+          </div>
+
+          <div class="quick-commands" aria-label="Quick commands">
+            <button type="button" data-command="supplier-memory-radar doctor">Doctor</button>
+            <button type="button" data-command="supplier-memory-radar analyze --no-correction">No correction</button>
+            <button type="button" data-command="supplier-memory-radar analyze">Analyze docs</button>
+            <button
+              type="button"
+              data-command="supplier-memory-radar run --output docs/examples/cognee-memory-output.json --reset"
+            >
+              Run proof
+            </button>
+            <button type="button" data-command='supplier-memory-radar ask "What changed after the correction?"'>
+              Ask correction
+            </button>
+            <button type="button" data-command="supplier-memory-radar --help">Help</button>
+            <button type="button" data-command="clear">Clear</button>
+          </div>
+        </section>
+
+        <aside class="side-stack" aria-label="Proof and evidence">
+          <section class="panel proof-panel">
+            <div class="panel-heading compact">
+              <div>
+                <p class="eyebrow">Proof</p>
+                <h2>Risk score</h2>
+              </div>
+            </div>
+            <div class="score-grid">
+              <article>
+                <span>Before</span>
+                <strong id="score-before">65</strong>
+              </article>
+              <article>
+                <span>After</span>
+                <strong id="score-after">100</strong>
+              </article>
+              <article>
+                <span>Delta</span>
+                <strong id="risk-delta">+35</strong>
+              </article>
+              <article>
+                <span>Verdict</span>
+                <strong id="verdict">pass</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel evidence-panel">
+            <div class="panel-heading compact">
+              <div>
+                <p class="eyebrow">Memory input</p>
+                <h2>Documents</h2>
+              </div>
+              <button class="small-button" type="button" id="reset-docs">Reset</button>
+            </div>
+            <details open>
+              <summary>Supplier packet</summary>
+              <textarea id="supplier_packet" spellcheck="false"></textarea>
+            </details>
+            <details>
+              <summary>Procurement policy</summary>
+              <textarea id="procurement_policy" spellcheck="false"></textarea>
+            </details>
+            <details>
+              <summary>Vendor history</summary>
+              <textarea id="vendor_history" spellcheck="false"></textarea>
+            </details>
+            <details>
+              <summary>Late correction</summary>
+              <textarea id="late_correction" spellcheck="false"></textarea>
+            </details>
+          </section>
+        </aside>
+      </section>
+
+      <section class="result-grid" aria-label="Command result details">
+        <section class="panel timeline-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Cognee lifecycle</p>
+              <h2>Run trace</h2>
+            </div>
+          </div>
+          <ol id="timeline">
+            <li>Run a command to populate the trace.</li>
+          </ol>
+        </section>
+
+        <section class="panel json-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Artifact</p>
+              <h2>Proof JSON</h2>
+            </div>
+          </div>
+          <pre id="proof-json">{}</pre>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js?v=20260704-real-workflow-1" defer></script>
+  </body>
+</html>

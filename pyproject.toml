@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supplier-memory-radar"
+version = "0.1.0"
+description = "Cognee-backed supplier onboarding memory risk radar CLI."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "cognee[fastembed]==1.2.2",
+    "typer==0.26.8",
+    "python-dotenv>=1.0,<2",
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.30,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+supplier-memory-radar = "supplier_memory_radar:main"
+
+[tool.setuptools]
+py-modules = ["supplier_memory_radar"]
